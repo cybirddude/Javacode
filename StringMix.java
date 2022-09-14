@@ -9,7 +9,6 @@ public class Main
 {
     public static void main(String[] args) throws FileNotFoundException {
         String S;
-        int wordcount = 0;//Counts the total number of words.
         ArrayList<String> arr = new ArrayList<String>(); // The arrayList that the permutations of the user input will go into
         ArrayList<String> out = new ArrayList<String>(); // The arrayList that will contain successfully matched strings
         //The following nine arrayLists will contain strings of specific sizes.
@@ -51,7 +50,6 @@ public class Main
                     if (Objects.equals(value, data)) {
                         // Check to make sure we didn't already match this string
                         if (!out.contains(data)) {
-                            wordcount++; //adds to the word count
                             out.add(data); // add successfully matched string to the output arrayList
                             switch(data.length())//Switch statement adds data to size-based arrayLists
                             {
@@ -91,21 +89,82 @@ public class Main
             }
         }
         scanner.close(); // Closes the file
-        int wordplace = 0;//Keeps count of a word's place when listed.
+        int wordplace = 0;//Keeps count of a word's place when listed and will display the total number of words at the end.
         //If statements will ensure that only lists that have elements will print.
         if(two.length() > 0)
+        {
+            for(int i = 0; i < two.length(); i++) //For loop produces as many words as there are in the array.
+            {
+                wordplace++; //Wordplace total will carry over to other for loops.
+                System.out.println(wordplace + ":" + two.get(i)); //Each line will display words as "(number):(word)"
+            }
+        }
         if(three.length() > 0)
+        {
+            for(int i = 0; i < three.length(); i++)
+                wordplace++;
+                System.out.println(wordplace + ":" + three.get(i));
+        }
         if(four.length() > 0)
+        {
+            for(int i = 0; i < four.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + four.get(i));
+            }
+        }
         if(five.length() > 0)
+        {
+            for(int i = 0; i < five.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + five.get(i));
+            }
+        }
         if(six.length() > 0)
+        {
+            for(int i = 0; i < six.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + six.get(i));
+            }
+        }
         if(seven.length() > 0)
+        {
+            for(int i = 0; i < seven.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + seven.get(i));
+            }
+        }
         if(eight.length() > 0)
+        {
+             for(int i = 0; i < eight.length(); i++)
+             {
+                 wordplace++;
+                 System.out.println(wordplace + ":" + eight.get(i));
+             }
+        }
         if(nine.length() > 0)
+        {
+            for(int i = 0; i < nine.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + nine.get(i));
+            }
+        }
         if(ten.length() > 0)
+        {
+            for(int i = 0; i < ten.length(); i++)
+            {
+                wordplace++;
+                System.out.println(wordplace + ":" + ten.get(i));
+            }
+        }
         // Just for testing: print out the "out" array
         System.out.println(Arrays.toString(out.toArray()));
         //Prints the total amount of the array
-        System.out.println("Total number of words: " + wordcount);
+        System.out.println("Total number of words: " + wordplace);
     }
 
     // From https://www.geeksforgeeks.org/print-all-permutations-of-a-string-in-java/
