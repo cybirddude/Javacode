@@ -9,9 +9,19 @@ public class Main
 {
     public static void main(String[] args) throws FileNotFoundException {
         String S;
+        int wordcount = 0;//Counts the total number of words.
         ArrayList<String> arr = new ArrayList<String>(); // The arrayList that the permutations of the user input will go into
         ArrayList<String> out = new ArrayList<String>(); // The arrayList that will contain successfully matched strings
-        String [] two, three, four, five, six, seven, eight, nine, ten; // Arrays containing strings of specific lengths
+        //The following nine arrayLists will contain strings of specific sizes.
+        ArrayList<String> two = new ArrayList<String>(); 
+        ArrayList<String> three = new ArrayList<String>();
+        ArrayList<String> four = new ArrayList<String>();
+        ArrayList<String> five = new ArrayList<String>();
+        ArrayList<String> six = new ArrayList<String>();
+        ArrayList<String> seven = new ArrayList<String>();
+        ArrayList<String> eight = new ArrayList<String>();
+        ArrayList<String> nine = new ArrayList<String>();
+        ArrayList<String> ten = new ArrayList<String>();
         String alphafile = "src/words_alpha.txt"; // The name of the file
         File f = new File(alphafile); // The actual file
         Scanner sc= new Scanner(System.in);
@@ -36,21 +46,66 @@ public class Main
             String data = scanner.nextLine(); // Data string is used to check individual lines in a file
             if(data.length() <= s.length()) // Checking if line in a file matches or is less than the length of the input string
             {
-                // Iterate over ever value in the array "arr"
+                // Iterate over every value in the array "arr"
                 for (String value : arr) {
                     if (Objects.equals(value, data)) {
                         // Check to make sure we didn't already match this string
                         if (!out.contains(data)) {
+                            wordcount++; //adds to the word count
                             out.add(data); // add successfully matched string to the output arrayList
+                            switch(data.length())//Switch statement adds data to size-based arrayLists
+                            {
+                                case 2:
+                                    two.add(data);
+                                    break;
+                                case 3:
+                                    three.add(data);
+                                    break;
+                                case 4:
+                                    four.add(data);
+                                    break;
+                                case 5:
+                                    five.add(data);
+                                    break;
+                                case 6:
+                                    six.add(data);
+                                    break;
+                                case 7:
+                                    seven.add(data);
+                                    break;
+                                case 8:
+                                    eight.add(data);
+                                    break;
+                                case 9:
+                                    nine.add(data);
+                                    break;
+                                case 10:
+                                    ten.add(data);
+                                    break;
+                                        
+                            }
+                                
                         }
                     }
                 }
             }
         }
         scanner.close(); // Closes the file
-
+        int wordplace = 0;//Keeps count of a word's place when listed.
+        //If statments will ensure that only lists that have elements will print.
+        if(two.length > 0)
+        if(three.length > 0)
+        if(four.length > 0)
+        if(five.length > 0)
+        if(six.length > 0)
+        if(seven.length > 0)
+        if(eight.length > 0)
+        if(nine.length > 0)
+        if(ten.length > 0)
         // Just for testing: print out the "out" array
         System.out.println(Arrays.toString(out.toArray()));
+        //Prints the total amount of the array
+        System.out.println("Total number of words: " + wordcount);
     }
 
     // From https://www.geeksforgeeks.org/print-all-permutations-of-a-string-in-java/
