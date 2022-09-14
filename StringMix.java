@@ -93,15 +93,15 @@ public class Main
         scanner.close(); // Closes the file
         int wordplace = 0;//Keeps count of a word's place when listed.
         //If statments will ensure that only lists that have elements will print.
-        if(two.length > 0)
-        if(three.length > 0)
-        if(four.length > 0)
-        if(five.length > 0)
-        if(six.length > 0)
-        if(seven.length > 0)
-        if(eight.length > 0)
-        if(nine.length > 0)
-        if(ten.length > 0)
+        if(two.length() > 0)
+        if(three.length() > 0)
+        if(four.length() > 0)
+        if(five.length() > 0)
+        if(six.length() > 0)
+        if(seven.length() > 0)
+        if(eight.length() > 0)
+        if(nine.length() > 0)
+        if(ten.length() > 0)
         // Just for testing: print out the "out" array
         System.out.println(Arrays.toString(out.toArray()));
         //Prints the total amount of the array
