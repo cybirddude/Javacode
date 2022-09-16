@@ -52,7 +52,6 @@ public class Main
                         // Check to make sure we didn't already match this string
                         if (!out.contains(data)) {
                             out.add(data); // add successfully matched string to the output arrayList
-                            Collections.sort(out); //Sorts the list in alphabetical order(in case the file isn't)
                             switch(data.length())//Switch statement adds data to size-based arrayLists
                             {
                                 case 2:
@@ -91,6 +90,15 @@ public class Main
             }
         }
         scanner.close(); // Closes the file
+          Collections.sort(two); //Sorts the list in alphabetical order(in case the file isn't)
+          Collections.sort(three);
+          Collections.sort(four);
+          Collections.sort(five);
+          Collections.sort(six);
+          Collections.sort(seven);
+          Collections.sort(eight);
+          Collections.sort(nine);
+          Collections.sort(ten);
         int wordplace = 0;//Keeps count of a word's place when listed and will display the total number of words at the end.
         //If statements will ensure that only lists that have elements will print.
         if(two.size() > 0)
