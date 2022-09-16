@@ -21,7 +21,7 @@ public class Main
         ArrayList<String> eight = new ArrayList<String>();
         ArrayList<String> nine = new ArrayList<String>();
         ArrayList<String> ten = new ArrayList<String>();
-        String alphafile = "src/words_alpha.txt"; // The name of the file
+        String alphafile = "words_alpha.txt"; // The name of the file
         File f = new File(alphafile); // The actual file
         Scanner sc= new Scanner(System.in);
         do
@@ -91,71 +91,73 @@ public class Main
         scanner.close(); // Closes the file
         int wordplace = 0;//Keeps count of a word's place when listed and will display the total number of words at the end.
         //If statements will ensure that only lists that have elements will print.
-        if(two.length() > 0)
+        if(two.size() > 0)
         {
-            for(int i = 0; i < two.length(); i++) //For loop produces as many words as there are in the array.
+            for(int i = 0; i < two.size(); i++) //For loop produces as many words as there are in the array.
             {
                 wordplace++; //Wordplace total will carry over to other for loops.
                 System.out.println(wordplace + ":" + two.get(i)); //Each line will display words as "(number):(word)"
             }
         }
-        if(three.length() > 0)
+        if(three.size() > 0)
         {
-            for(int i = 0; i < three.length(); i++)
+            for(int i = 0; i < three.size(); i++)
+            {
                 wordplace++;
                 System.out.println(wordplace + ":" + three.get(i));
+            }
         }
-        if(four.length() > 0)
+        if(four.size() > 0)
         {
-            for(int i = 0; i < four.length(); i++)
+            for(int i = 0; i < four.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + four.get(i));
             }
         }
-        if(five.length() > 0)
+        if(five.size() > 0)
         {
-            for(int i = 0; i < five.length(); i++)
+            for(int i = 0; i < five.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + five.get(i));
             }
         }
-        if(six.length() > 0)
+        if(six.size() > 0)
         {
-            for(int i = 0; i < six.length(); i++)
+            for(int i = 0; i < six.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + six.get(i));
             }
         }
-        if(seven.length() > 0)
+        if(seven.size() > 0)
         {
-            for(int i = 0; i < seven.length(); i++)
+            for(int i = 0; i < seven.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + seven.get(i));
             }
         }
-        if(eight.length() > 0)
+        if(eight.size() > 0)
         {
-             for(int i = 0; i < eight.length(); i++)
+             for(int i = 0; i < eight.size(); i++)
              {
                  wordplace++;
                  System.out.println(wordplace + ":" + eight.get(i));
              }
         }
-        if(nine.length() > 0)
+        if(nine.size() > 0)
         {
-            for(int i = 0; i < nine.length(); i++)
+            for(int i = 0; i < nine.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + nine.get(i));
             }
         }
-        if(ten.length() > 0)
+        if(ten.size() > 0)
         {
-            for(int i = 0; i < ten.length(); i++)
+            for(int i = 0; i < ten.size(); i++)
             {
                 wordplace++;
                 System.out.println(wordplace + ":" + ten.get(i));
