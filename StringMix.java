@@ -1,6 +1,7 @@
 // Names: Eddie Lemmon and Ted Laesch
 // Course: Computer Science 4500 Introduction to the Software Profession
 // Due date: September 16, 2022
+//Sources used: GeeksforGeeks (Details below)
 // Purpose of program: To take a string of characters and see what words can be formed from said characters.
 
 import java.io.*;
