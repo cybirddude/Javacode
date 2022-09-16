@@ -163,8 +163,6 @@ public class Main
                 System.out.println(wordplace + ":" + ten.get(i));
             }
         }
-        // Just for testing: print out the "out" array
-        System.out.println(Arrays.toString(out.toArray()));
         //Prints the total amount of the array
         System.out.println("Total number of words: " + wordplace);
     }
@@ -185,6 +183,11 @@ public class Main
 
             // Grabbing every character except for the ith character
             String remainingString = str.substring(0, i) + str.substring(i + 1);
+             // Add the characters from the last recursion and the character from the current recursion together
+            // Then add the resulting string to the array
+            String tonext = ans + currentChar;
+            arr.add(tonext);
+ 
 
             // Recursive call!
             findPermutations(remainingString, ans + currentChar, arr);
