@@ -52,6 +52,7 @@ public class Main
                         // Check to make sure we didn't already match this string
                         if (!out.contains(data)) {
                             out.add(data); // add successfully matched string to the output arrayList
+                            Collections.sort(out); //Sorts the list in alphabetical order(in case the file isn't)
                             switch(data.length())//Switch statement adds data to size-based arrayLists
                             {
                                 case 2:
