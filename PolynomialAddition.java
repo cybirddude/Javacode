@@ -69,7 +69,7 @@ public class Main
 		{
 			c[i] = r.nextInt(101) + 1; //Coefficient elements will be random integers between 1 and 100, inclusive
 		}
-		System.out.println("Please press a number between 1-3, I will evaluate a polynomial via 1 of 3 different methods, and tell you how long it took me:");
+		System.out.println("Please press a number between 1-3, I will evaluate a 200000 degree polynomial via 1 of 3 different methods, and tell you how long it took me:");
 		System.out.println("Press 1 to evaluate using direct multiplication");
 		System.out.println("Press 2 to evaluate using the power function");
 		System.out.println("Press 3 to evaluate using Horner's method");
