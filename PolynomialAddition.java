@@ -4,7 +4,7 @@
 //Purpose of program: To compare the speed of three methods of comparing polynomials.
 import java.util.*;
 public class Main
-{       static double hardway(int poly[], int n, double x)//Uses direct multiplication to evaluate polynomials.
+{      public static double hardway(int poly[], int n, double x)//Uses direct multiplication to evaluate polynomials.
                                                {
 	int total = 0; //The result of the polynomial.
 	for(int i = 0; i < poly.length; i++) //Nested loop that evaluates the polynomial. 
@@ -23,7 +23,7 @@ public class Main
 	}
        return total;
         }
-        static double mediumway(int poly[], int n, double x)//Uses the power function to evaluate polynomials.
+       public static double mediumway(int poly[], int n, double x)//Uses the power function to evaluate polynomials.
 	{
 		double total = 0; //Like 
 		for (int i = 0; i < poly.length; i++)
@@ -38,7 +38,7 @@ public class Main
 		}
 		return total;
 	}
-        static double easyway(int poly[], int n, double x)
+       public static double easyway(int poly[], int n, double x)
         //Uses horner's method to evaluate polynomials.
         //Modified version of another method: https://www.geeksforgeeks.org/horners-method-polynomial-evaluation/		
 	{
@@ -60,16 +60,42 @@ public class Main
 		int[] c = new int[degree + 1];//array that will hold coefficients.
 		for (int i = 0; i < 200001; i++) // Loop will assign values to c.
 		{
-			c[i] = r.nextInt(101) + 1 //Coefficient elements will be between 1 and 100, inclusive
+			c[i] = r.nextInt(101) + 1 //Coefficient elements will be random integers between 1 and 100, inclusive
 		}
-		
+		System.out.println("Please press a number between 1-3, I will evaluate a polynomial via 1 of 3 different methods, and tell you how long it took me:");
+		System.out.println("Press 1 to evaluate using direct multiplication");
+		System.out.println("Press 2 to evaluate using the power function");
+		System.out.println("Press 3 to evaluate using Horner's method");
+	        System.out.println("Press 0 to quit");
+		Scanner sc = new Scanner(System.ln);
+		choice = sc.nextLine();
 		do
 		{
 			switch(choice)
 			{ case 1:
+			 long start = System.currentTimeMillis(); //Will start the timer and measure in milliseconds
+			 hardway(c, degree, x);
+			 long finish = System.currentTimeMillis(); //End of the timer.
+			 long timeElapsed = finish - start; //The time the method took.
+			 System.out.println("Elapsed time is:" + timeElapsed + "ms");
+			 break;
 			  case 2:
+			 long begin = System.currentTimeMillis();
+			 mediumway(c, degree, x);
+			 long end = System.currentTimeMillis();
+			 long middle = end - begin;
+			 System.out.println("Elapsed time is:" + middle + "ms");
+			 break;
 			  case 3:
+			 long go = System.currentTimeMillis();
+			 easyway(c, degree, x);
+			 long stop = System.currentTimeMillis();
+			 long results = stop - go;
+			 System.out.println("Elapsed time is:" + go + "ms");
+			 break;
 			  case 0:
+			 System.out.println("Bye!");
+			     break;
 			  default:
 			 System.out.println("That is not a valid entry!");
 			}
