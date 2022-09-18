@@ -75,9 +75,11 @@ public class Main
 		System.out.println("Press 3 to evaluate using Horner's method");
 	    System.out.println("Press 0 to quit");
 		Scanner sc = new Scanner(System.in);
-		choice = sc.nextInt();
 		do
 		{
+		choice = sc.nextInt();
+		
+		
 			switch(choice)
 			{ case 1:
 			 long start = System.currentTimeMillis(); //Will start the timer and measure in milliseconds
