@@ -4,19 +4,55 @@
 //Purpose of program: To compare the speed of three methods of comparing polynomials.
 import java.util.*;
 public class Main
-{       static void hardway(int poly[], int n, double x)//Uses direct multiplication to evaluate polynomials.
+{       static double hardway(int poly[], int n, double x)//Uses direct multiplication to evaluate polynomials.
                                                {
-
+	int total = 0; //The result of the polynomial.
+	for(int i = 0; i < poly.length; i++) //Nested loop that evaluates the polynomial. 
+	{ //First loop runs for each element in the polynomial, second runs for 
+		for(int j = 0; j < n; j++) //In order to insure that x is multiplied by poly[i] n times...
+		    {
+			  poly[i] = poly[i] * x; //A nested loop is necessary to multiply each element of poly by x^n.
+		    }
+		n = n - 1; //Method is designed for polynomials of decreasing degree order, so it is necessary to decrease the value of n.
+		total += poly[i]; //adds value of poly[i] * x^n to total.
+	}
+       return total;
         }
-        static void mediumway(int poly[], int n, double x)//Uses the power function to evaluate polynomials.
-	//Uses horner's method to evaluate polynomials.
-        //Modified version of another method: https://www.geeksforgeeks.org/horners-method-polynomial-evaluation/
-        static void easyway(int poly[], int n, double x)
+        static double mediumway(int poly[], int n, double x)//Uses the power function to evaluate polynomials.
+	{
+		double total = 0; //Like 
+		for (int i = 0; i < poly.length; i++)
+		{
+			total += poly[i] * Math.pow(x, n); //Uses the power function to evaluate polynomials, which is faster than direct multiplication
+			n = n - 1; //Method is design for polynomials of decreasing degrees, this is necessary.
+		}
+		return total;
+	}
+        static double easyway(int poly[], int n, double x)
+        //Uses horner's method to evaluate polynomials.
+        //Modified version of another method: https://www.geeksforgeeks.org/horners-method-polynomial-evaluation/		
+	{
+		double result = poly[0]; //The result of the method
+		 for (int i=1; i<n; i++) //Unlike previous methods, loop runs for the length of n, rather than poly.
+                      result = result*x + poly[i]; //Unlike previous methods, for loop is a single line, and no code is needed to decrement n.
+		
+		return result;
+	}
 	public static void main(String[] args) {
+		Random r new Random(); //Will produce a random number for both the coefficients and the variable.
                 int degree = 200000;//Degree of polynomial
 		int choice; //User will choose a number from 1-3 in order to decide which method to use, or zero to quit the program.
-                double x;//Every coefficient will be multiplied by x.
-		int[] c = new int[degree];//array that will hold coefficient.
+		double x = r.nextDouble(); //Every coefficient will be multiplied by x, which will be between 0.0 and 1.0 exclusive.
+		do//nextDouble method is normally 0 inclusive and 1 exclusive so to make sure x is never 0...
+		{
+                  x = r.nextDouble();// //x will be reassigned until x doesn't equal 0.
+		} while (x == 0)//Do while loop runs as long as x is equal to 0.
+		int[] c = new int[degree];//array that will hold coefficients.
+		for (int i = 0; i < 200000; i++) // Loop will assign values to c.
+		{
+			c[i] = r.nextInt(101) + 1 //Coefficient elements will be between 1 and 100, inclusive
+		}
+		
 		do
 		{
 			switch(choice)
