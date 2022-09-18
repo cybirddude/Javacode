@@ -8,13 +8,18 @@ public class Main
                                                {
 	int total = 0; //The result of the polynomial.
 	for(int i = 0; i < poly.length; i++) //Nested loop that evaluates the polynomial. 
-	{ //First loop runs for each element in the polynomial, second runs for 
+	{ //First loop runs for each element in the polynomial, second runs for length of n
+		if(n > 0) //If the degree is 
+		{
 		for(int j = 0; j < n; j++) //In order to insure that x is multiplied by poly[i] n times...
 		    {
 			  poly[i] = poly[i] * x; //A nested loop is necessary to multiply each element of poly by x^n.
 		    }
 		n = n - 1; //Method is designed for polynomials of decreasing degree order, so it is necessary to decrease the value of n.
 		total += poly[i]; //adds value of poly[i] * x^n to total.
+		}
+		else
+			total += poly[i];
 	}
        return total;
         }
@@ -23,8 +28,13 @@ public class Main
 		double total = 0; //Like 
 		for (int i = 0; i < poly.length; i++)
 		{
+			if(n > 0)
+			{
 			total += poly[i] * Math.pow(x, n); //Uses the power function to evaluate polynomials, which is faster than direct multiplication
 			n = n - 1; //Method is design for polynomials of decreasing degrees, this is necessary.
+			}
+			else
+				total += poly[i];
 		}
 		return total;
 	}
@@ -47,8 +57,8 @@ public class Main
 		{
                   x = r.nextDouble();// //x will be reassigned until x doesn't equal 0.
 		} while (x == 0)//Do while loop runs as long as x is equal to 0.
-		int[] c = new int[degree];//array that will hold coefficients.
-		for (int i = 0; i < 200000; i++) // Loop will assign values to c.
+		int[] c = new int[degree + 1];//array that will hold coefficients.
+		for (int i = 0; i < 200001; i++) // Loop will assign values to c.
 		{
 			c[i] = r.nextInt(101) + 1 //Coefficient elements will be between 1 and 100, inclusive
 		}
