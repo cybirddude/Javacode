@@ -100,7 +100,7 @@ public class Main
 			 System.out.println(easyway(c, degree, x));
 			 long stop = System.currentTimeMillis();
 			 long results = stop - go;
-			 System.out.println("Elapsed time is:" + go + "ms");
+			 System.out.println("Elapsed time is:" + results + "ms");
 			 break;
 			  case 0:
 			 System.out.println("Bye!");
