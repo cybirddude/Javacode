@@ -19,9 +19,9 @@ return ((sqrt - Math.floor(sqrt)) == 0);
   
 	public static void main(String[] args) {
     double x; //Will be the number that the user enters.
-    double a; //Will be one of the variables
-    double b; //Will be the second variable.
-    double r = (Math.pow(a, 2) + Math.pow(b, 2))/((a*b) + 1)); //The formula in a single variable.
+    double a = 0; //Will be one of the variables
+    double b = 0; //Will be the second variable.
+    double r; //The formula in a single variable.
     int total_int = 0; //Counts the number of integers.
     int perfect = 0; //Counts the number of perfect squares.
     Scanner sc = new Scanner(System.in);
@@ -44,14 +44,16 @@ return ((sqrt - Math.floor(sqrt)) == 0);
 		
       for(int i = 0; i < x; i++) //Recursive function tests numbers from 1 to X.
       {
-	      a = 1 + i; //This is necessary so that all of the numbers will be tested and so a will never equal 0..
+              b = 0; //This is necessary in order to reset b after the second loop finishes.
+	      a++; //This is necessary so that all of the numbers will be tested and so a will never equal 0..
 	      for(int j = 0; j < x; j++) //Second for loop adds a squared to all values of b squared to test the loop.
 	      {
-		      b = 1 + j;
+		      b++;
+		      r = (Math.pow(a, 2) + Math.pow(b, 2))/((a*b) + 1); //The formula is defined in the loop to prevent errors.
 		      if(r == (int)r)
 	         { 
 	          total_int++;
-		  System.out.println("That is " + total_int " integers so far!");
+		  System.out.println("That is " + total_int + " integers so far!");
 		     		 if(checkPerfectSquare(r))
 		     	 {
 			    	        perfect++;
@@ -68,4 +70,3 @@ return ((sqrt - Math.floor(sqrt)) == 0);
       }
 	}
 }
-
