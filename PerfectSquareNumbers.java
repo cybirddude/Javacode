@@ -1,12 +1,3 @@
-//Name: Eddie Lemmon
-//Course: Computer Science 4500 Introduction to the Software Profession
-//Due Date: September 23, 2022
-//Sources used: Javaatpoint
-//Purpose of Program: To find positive squares of the formula (a^2 + b^2)/(ab + 1)
-  import java.lang.*;
-  import java.util.*;
-  import java.io.*;
-public class Main
 {
 	static boolean checkPerfectSquare(double number)  //Method's purpose is to check if a number is a perfect square. 
 		//Method comes from here: https://www.javatpoint.com/java-program-to-check-if-a-given-number-is-perfect-square
@@ -51,14 +42,14 @@ return ((sqrt - Math.floor(sqrt)) == 0);
 	      {
 		      b++;
 		      r = (Math.pow(a, 2) + Math.pow(b, 2))/((a*b) + 1); //The formula is defined in the loop to prevent errors.
-		      if(r == (int)r)
+		      if(r == (int)r) //Checks if r is an integer
 	         { 
 	          total_int++;
-		  System.out.println("That is " + total_int + " integers so far!");
-		     		 if(checkPerfectSquare(r))
+		      System.out.println("That is " + total_int + " integers found so far!");
+		     		 if(checkPerfectSquare(r)) //Checks if r is a perfect square
 		     	 {
-			    	        perfect++;
-			      		System.out.println("Perfect square number "  + perfect);
+			    	perfect++;
+			      	System.out.println("Perfect square number "  + perfect);
 					System.out.println("a = " + a);
 					System.out.println("b = " + b);
 					System.out.println("r = " + r);
@@ -75,7 +66,7 @@ return ((sqrt - Math.floor(sqrt)) == 0);
 		a = 0;
 		b = 0;
 		total_int = 0;
-		long start = currentTimeMillis(); //Start of the timer
+		long start = System.currentTimeMillis(); //Start of the timer
 	 for(int i = 0; i < x; i++) //Second recusive function is like the first, only without displaying information.
       {
               b = 0; //This is necessary in order to reset b after the second loop finishes.
@@ -90,22 +81,19 @@ return ((sqrt - Math.floor(sqrt)) == 0);
 		     		 if(checkPerfectSquare(r))
 		     	 {
 			    	        perfect++;
-					System.out.println("a = " + a);
-					System.out.println("b = " + b);
-					System.out.println("r = " + r);
 					
 		     	 }
          	 }			 
 		      
 	      }
       }
-		long end = currentTimeMillis(); //End of the timer
+		long end = System.currentTimeMillis(); //End of the timer
 		long middle = end - start; //The time it took to perform the work in the for loop
 		//Final five lines are a summary of the loops
 		System.out.println("The largest number for a and b was " + x);
 		System.out.println("The number of pairs tested was " + (x * x));
 		System.out.println("There were " + total_int + " integers in total.");
-		System.out.println("There were " + perfect + "perfect squares in total.");
-		System.out.println("It took " + middle "ms to do the work.");
+		System.out.println("There were " + perfect + " perfect squares in total.");
+		System.out.println("It took " + middle + "ms to do the work.");
 	}
 }
