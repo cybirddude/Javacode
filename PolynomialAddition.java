@@ -6,42 +6,34 @@ import java.util.*;
 import java.io.*;
 public class Main
 {      public static double hardway(int poly[], int n, double x)//Uses direct multiplication to evaluate polynomials.
-                                               {
-	double total = 0; //The result of the polynomial.
-    double [] stand_in = new double[poly.length]; //Double array is for converting poly elements to doubles for math purposes
-    
-    for(int i=0; i<poly.length; i++) //converting poly to doubles
-    {
-    stand_in[i] = poly[i];
-    }
-	for(int i = 0; i < poly.length; i++) //Nested loop that evaluates the polynomial. 
-	{ //First loop runs for each element in the polynomial, second runs for length of n
-	    if(n > 0) //If the degree is 
-		{
-		for(int j = 0; j < n; j++) //In order to insure that x is multiplied by poly[i] n times...
-		    {
-			  stand_in[i] = poly[i] * x; //A nested loop is necessary to multiply each element of poly by x^n.
-			  total += stand_in[i]; //adds value of poly[i] * x^n to total.
-		    }
-		n = n - 1; //Method is designed for polynomials of decreasing degree order, so it is necessary to decrease the value of n.
-		}
-		else
-			total += poly[i]; //For coefficient without variable.
-	}
-       return total;
+                                               
+        {
+            double total = 0;
+            double [] stand_in = new double[poly.length]; //Double array is for converting poly elements to doubles for math purposes
+	        double result; //will hold the result of the polynomial
+	        int exponent; //will hold the value of the current exponent.
+	        for(int i = 0; i < (n + 1); i++)
+	        {
+	            exponent = i;
+	            result = 1; //Result will equal one by default for the exponent of 0.
+	            while(exponent != 0)
+	            {
+	                result *= x;
+	                exponent--; 
+	            }
+	            total += result * poly[i];
+	        }
+	        return total;
         }
        public static double mediumway(int poly[], int n, double x)//Uses the power function to evaluate polynomials.
 	{
 		double total = 0; //Like 
-		for (int i = 0; i < poly.length; i++)
+		double result;
+		for(int i = 0; i < (1 + n); i++)
 		{
-			if(n > 0)
-			{
-			total += poly[i] * Math.pow(x, n); //Uses the power function to evaluate polynomials, which is faster than direct multiplication
-			n = n - 1; //Method is design for polynomials of decreasing degrees, this is necessary.
-			}
-			else
-				total += poly[i];
+		    result = Math.pow(x, i);
+		    total += result * poly[i];
+		    
 		}
 		return total;
 	}
@@ -49,9 +41,9 @@ public class Main
         //Uses horner's method to evaluate polynomials.
         //Modified version of another method: https://www.geeksforgeeks.org/horners-method-polynomial-evaluation/		
 	{
-		double result = poly[0]; //The result of the method
-		 for (int i=1; i<n; i++) //Unlike previous methods, loop runs for the length of n, rather than poly.
-                      result = result*x + poly[i]; //Unlike previous methods, for loop is a single line, and no code is needed to decrement n.
+		double result = poly[n]; //The result of the method
+		 for (int i=n; i >= 1; i--) //Unlike previous methods, loop runs for the length of n, rather than poly.
+                result = result * x + poly[i-1];
 		
 		return result;
 	}
@@ -64,7 +56,7 @@ public class Main
 		{
                   x = r.nextDouble();// //x will be reassigned until x doesn't equal 0.
 		} while (x == 0);//Do while loop runs as long as x is equal to 0.
-		int[] c = new int[degree + 1];//array that will hold coefficients.
+		int[] c = new int[degree + 1];//array that will hold coefficients. The + 1 is to hold the monomial with x^0
 		for (int i = 0; i < 200001; i++) // Loop will assign values to c.
 		{
 			c[i] = r.nextInt(101) + 1; //Coefficient elements will be random integers between 1 and 100, inclusive
