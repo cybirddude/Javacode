@@ -27,7 +27,7 @@ public class Main
   }
   public static long maxoverflow()
     {
-       int n = 0;
+       long n = 0;
        long fibo;
        while(fibo > 0 || fibo < Long.MAX_VALUE) //While loop runs while fibo is positive and less than the maximum long value.
        {
@@ -36,16 +36,30 @@ public class Main
        }
     return n;
     }
-  public static BigInteger afibo(int n)
+  public static BigInteger afibo(BigInteger n)
   {
-    int[] F = new int[n];
-    F[0] = 0;
-    F[1] = 1;
+    BigInteger[] F = new BigInteger[n];
+    F[0] = BigInteger.ZERO;
+    F[1] = BigInteger.ONE;
     for(i = 2; i <= n; i++)
-      F[i] = F[i - 1] + F[i - 2];
+      F[i] = F[i-1].add(F[i-2]);
     return F[n - 1];
   }
+  //Next four methods are related to the extra credit method.
+  public static BigInteger exfig(BigInteger n)
+  {
+  }
+  public static void multiply(BigInteger F[][], BigInteger M[][]) //Alternate version of the BigInteger's multiply method.
+  {
+  }
+  public static void multiply2(BigInteger F[][])
+  {
+  }
+  public static void squaring(BigInteger F[][], BigInteger n)
+  {
+  }
+    
   public static void main(String[] args){
-    int n;
+    long n;
   }
 }
