@@ -1,7 +1,7 @@
 //Name: Eddie Lemmon
 //Course: CMP-SCI-3130
 //Due Date: December 11, 2022
-//Purpose of Program:Compare the speed of four methods of finding fibonacci numbers.
+//Purpose of Program:Compare the speed of three methods of finding fibonacci numbers.
 import java.util.*;
 import java.io.*;
 import java.lang.*;
