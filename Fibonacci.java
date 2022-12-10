@@ -100,7 +100,7 @@ public class Main
     System.out.println("It took " + middle + "seconds using the logarithmic method.");
     //First three tests show that all algorithms produce same outputs. Next two show off the power of the iterative and logarithmic algorithms.
     System.out.println("Fun fact: the iterative and logarithmic methods can hold much large values than the recursive method.");
-    System.out.println("In addition, they can also perform calculations much faster even with bigger numbers."):
+    System.out.println("In addition, they can also perform calculations much faster even with bigger numbers.");
     System.out.println("To prove it I am going to let you enter a large number such as 1000 or 10000, and you can see how fast they are in milliseconds.");
     while(n < 1000) //Prevents the user from entering a value that is to low.
     {
