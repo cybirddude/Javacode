@@ -87,7 +87,7 @@ public class Main
     long stop = System.currentTimeMillis(); //End time in milliseconds.
     float middle = (stop - go)/1000F; //Total calculation time in seconds.
     System.out.println("It took " + middle + " seconds using the recursive method.");
-    System.out.println("(Fun fact: it takes the recussive method around half a minute to calculate using an input of 48 or 49. )");
+    System.out.println("(Fun fact: it takes the recussive method around half a minute to calculate using an input of 47. )");
     go = System.currentTimeMillis(); //Resets go.
     System.out.println("The fibonacci number for " + n + " using the iterative algorithm is:" + afibo((int) n));
     stop = System.currentTimeMillis(); //Resets stop.
