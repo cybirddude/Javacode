@@ -80,7 +80,7 @@ public class Main
     do
     {
         System.out.println("Enter a whole number between 1 and 93, inclusive:");
-        n = (long) sc.nextLong();
+        n = (long) sc.nextLong();//(long) converts doubles and floats into longs.
     }while(n < 0 || n > 94); //"n" can only be between 0 and 93 inclusive.
     long go = System.currentTimeMillis(); //Start time in milliseconds.
     System.out.println("The fibonacci number for " + n + " using the recursive algorithm is:" + rfibo(n));
@@ -98,5 +98,26 @@ public class Main
     stop = System.currentTimeMillis();
     middle = (stop - go)/1000F;
     System.out.println("It took " + middle + "seconds using the logarithmic method.");
+    //First three tests show that all algorithms produce same outputs. Next two show off the power of the iterative and logarithmic algorithms.
+    System.out.println("Fun fact: the iterative and logarithmic methods can hold much large values than the recursive method.");
+    System.out.println("In addition, they can also perform calculations much faster even with bigger numbers."):
+    System.out.println("To prove it I am going to let you enter a large number such as 1000 or 10000, and you can see how fast they are in milliseconds.");
+    while(n < 1000) //Prevents the user from entering a value that is to low.
+    {
+      n = (long) sc.nextLong();
+      if (n < 1000)
+        System.out.println("Try to think bigger: like 1000, 10000 maybe...");
+    }
+    go = System.currentTimeMillis();
+    System.out.println("The fibonacci number for " + n + " using the iterative algorithm is " + afibo((int) n));
+    stop = System.currentTimeMillis();
+    middle = (stop - go); //Unlike before, time calculated in milliseconds.
+    System.out.println("It took " + middle + " milliseconds using the iterative method.");
+    go = System.currentTimeMillis();
+    System.out.println("The fibonacci number for " + n + " using the logarithmic algorithm is " + exfig(BigInteger.valueOf(n)));
+    stop = System.currentTimeMillis();
+    middle = (stop - go);
+    System.out.println("It took " + middle + " milliseconds using the logarithmic method.");
+    
   }
 }
